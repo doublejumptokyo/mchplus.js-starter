@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mchplus.js": "0.0.17"
+    "mchplus.js": "0.0.18"
   },
   "devDependencies": {
     "html-loader": "^0.5.5",

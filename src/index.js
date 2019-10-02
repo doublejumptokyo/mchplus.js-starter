@@ -1,8 +1,7 @@
 import Mchplus from 'mchplus.js'
 import config from './config'
 
-const mchplus = new Mchplus({ dev: true })
-console.log(mchplus)
+let mchplus
 
 async function onClickYourAddress(e) {
   e.preventDefault()
@@ -57,6 +56,14 @@ async function init() {
   document.ownerOfForm.addEventListener('submit', onClickOwnerOf)
   document.transferFrom.addEventListener('submit', onClickTransferFrom)
   document.metadata.addEventListener('submit', onClickMetadata)
+
+  if (window.ethereum) {
+    mchplus = new Mchplus(window.ethereum, { dev: true })
+  } else if (window.web3) {
+    mchplus = new Mchplus(window.web3.currentProvider, { dev: true })
+  } else {
+    mchplus = new Mchplus(null, { dev: true })
+  }
   await mchplus.init()
 }
 
