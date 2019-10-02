@@ -1,6 +1,8 @@
 import Mchplus from 'mchplus.js'
+import config from './config'
 
 const mchplus = new Mchplus({ dev: true })
+console.log(mchplus)
 
 async function onClickYourAddress(e) {
   e.preventDefault()
@@ -42,7 +44,7 @@ async function onClickMetadata(e) {
   try {
     await mchplus.post(`${contractAddress}/${tokenId}`, {
       name, description, image
-    })
+    }, config.NETWORK_ID)
     document.querySelector('#metadata-post-status').textContent = 'Success'
   } catch (e) {
     console.error(e)
