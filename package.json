@@ -5,13 +5,16 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server"
+    "start": "node ./server/app.js & webpack-dev-server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "mchplus.js": "0.0.18"
+    "axios": "^0.19.0",
+    "humps": "^2.0.1",
+    "mchplus.js": "0.0.18",
+    "web3": "^1.2.1"
   },
   "devDependencies": {
     "html-loader": "^0.5.5",

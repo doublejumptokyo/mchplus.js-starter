@@ -1,4 +1,5 @@
 import Mchplus from 'mchplus.js'
+import axios from 'axios'
 import config from './config'
 
 let mchplus
@@ -41,9 +42,9 @@ async function onClickMetadata(e) {
   const description = document.metadata.description.value
   const image = document.metadata.image.value
   try {
-    await mchplus.post(`${contractAddress}/${tokenId}`, {
-      name, description, image
-    }, config.NETWORK_ID)
+    await axios.get('http://localhost:8000/api', {
+      params: { contractAddress, tokenId, name, description, image, networkId: config.NETWORK_ID }
+    })
     document.querySelector('#metadata-post-status').textContent = 'Success'
   } catch (e) {
     console.error(e)

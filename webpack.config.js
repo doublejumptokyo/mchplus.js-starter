@@ -3,8 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   mode: 'development',
   devServer: {
-    contentBase: 'dist',
-    open: true
+    contentBase: 'dist'
   },
   plugins: [
     new HtmlWebpackPlugin({
